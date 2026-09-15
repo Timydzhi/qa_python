@@ -89,3 +89,10 @@ class TestBooksCollector:
         collector.delete_book_from_favorites('Властелин колец')
 
         assert 'Властелин колец' not in collector.get_list_of_favorites_books()
+
+    def test_get_list_of_favorites_books_returns_favorites(self, collector):
+
+        collector.add_new_book('Властелин колец')
+        collector.add_book_in_favorites('Властелин колец')
+
+        assert collector.get_list_of_favorites_books() == ['Властелин колец']
